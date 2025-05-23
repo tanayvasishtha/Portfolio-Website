@@ -59,25 +59,23 @@ export const Contact = () => {
     setStatus('loading')
 
     try {
-      // TODO: Set your actual EmailJS service ID, template ID, and public key below!
-      if (
-        'YOUR_SERVICE_ID' === 'YOUR_SERVICE_ID' ||
-        'YOUR_TEMPLATE_ID' === 'YOUR_TEMPLATE_ID' ||
-        'YOUR_PUBLIC_KEY' === 'YOUR_PUBLIC_KEY'
-      ) {
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '';
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '';
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '';
+      if (!serviceId || !templateId || !publicKey) {
         setStatus('error')
         return
       }
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        serviceId,
+        templateId,
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
-        'YOUR_PUBLIC_KEY'
+        publicKey
       )
       setStatus('success')
       setFormData({ name: '', email: '', subject: '', message: '' })

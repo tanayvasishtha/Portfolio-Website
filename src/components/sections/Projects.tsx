@@ -12,7 +12,7 @@ const projects = [
   {
     title: 'WeLoveQR',
     description: 'A modern QR code generator and manager for everyone.',
-    image: '/weloveqr.png',
+    image: '/WeLoveQr.png',
     live: 'https://weloveqr.netlify.app/',
   },
   {
