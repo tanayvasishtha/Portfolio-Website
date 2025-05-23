@@ -4,7 +4,27 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Award, GraduationCap } from 'lucide-react'
 
-const education = [
+// Add type definitions at the top
+type EducationType = {
+  degree: string;
+  institution: string;
+  period: string;
+  current?: boolean;
+  details: {
+    gpa?: string;
+    courses: string[];
+  };
+};
+
+type CertificationType = {
+  title: string;
+  issuer: string;
+  period: string;
+  description?: string;
+};
+
+// Update the arrays with explicit types
+const education: EducationType[] = [
   {
     degree: 'Bachelor of Technology (B.Tech) in Computer Science and Engineering',
     institution: 'KIIT University',
@@ -36,9 +56,9 @@ const education = [
       ],
     },
   },
-]
+];
 
-const certifications = [
+const certifications: CertificationType[] = [
   {
     title: 'Leadership Program 2024 (Cohort 3)',
     issuer: 'Aspire Institute',
@@ -65,9 +85,9 @@ const certifications = [
     issuer: 'Environmental Technology',
     period: '2023',
   },
-]
+];
 
-const EducationCard = ({ education }: { education: typeof education[0] }) => {
+const EducationCard = ({ education }: { education: EducationType }) => {
   return (
     <div className="bg-space-black/50 backdrop-blur-sm border border-cosmic-purple/20 rounded-xl p-6 hover:border-cosmic-purple/40 transition-colors">
       <div className="flex items-center justify-between mb-4">
@@ -106,7 +126,7 @@ const EducationCard = ({ education }: { education: typeof education[0] }) => {
   )
 }
 
-const CertificationCard = ({ certification }: { certification: typeof certifications[0] }) => {
+const CertificationCard = ({ certification }: { certification: CertificationType }) => {
   return (
     <div className="bg-space-black/50 backdrop-blur-sm border border-cosmic-purple/20 rounded-xl p-6 hover:border-cosmic-purple/40 transition-colors">
       <h3 className="text-xl font-display font-semibold text-cosmic-purple mb-2">
