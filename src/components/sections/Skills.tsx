@@ -73,22 +73,14 @@ const SkillCard = ({ title, skills }: { title: string; skills: { name: string; l
   return (
     <div className="bg-space-black/50 backdrop-blur-sm border border-cosmic-purple/20 rounded-xl p-6 hover:border-cosmic-purple/40 transition-colors">
       <h3 className="text-xl font-display font-semibold mb-6 text-cosmic-purple">{title}</h3>
-      <div className="space-y-4">
+      <div className="flex flex-wrap gap-3">
         {skills.map((skill) => (
-          <div key={skill.name}>
-            <div className="flex justify-between mb-2">
-              <span className="text-light-gray">{skill.name}</span>
-              <span className="text-stellar-gold">{skill.level}%</span>
-            </div>
-            <div className="h-2 bg-space-black rounded-full overflow-hidden">
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: `${skill.level}%` }}
-                transition={{ duration: 1, ease: 'easeOut' }}
-                className="h-full bg-gradient-to-r from-cosmic-purple to-stellar-gold"
-              />
-            </div>
-          </div>
+          <span
+            key={skill.name}
+            className="px-4 py-1 rounded-full bg-gradient-to-r from-cosmic-purple to-stellar-gold text-white font-medium text-sm shadow"
+          >
+            {skill.name}
+          </span>
         ))}
       </div>
     </div>
