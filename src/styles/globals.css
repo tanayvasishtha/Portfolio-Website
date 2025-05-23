@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-space-black text-pure-white overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-12 sm:py-16 md:py-24;
+  }
+
+  .container-padding {
+    @apply px-3 sm:px-4 md:px-6 lg:px-8;
+  }
+
+  .heading-1 {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold;
+  }
+
+  .heading-2 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold;
+  }
+
+  .heading-3 {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-bold;
+  }
+
+  .body-text {
+    @apply text-base sm:text-lg text-light-gray;
+  }
+
+  .section-divider {
+    @apply w-full h-1 my-12 rounded-full bg-gradient-to-r;
+    background-image: linear-gradient(to right, #1a223f, #f6ad55, #1a223f);
+    opacity: 0.7;
+    box-shadow: 0 2px 16px 0 #000a;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-space-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-cosmic-purple rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-stellar-gold;
+}
+
+.bg-gta6-cosmic {
+  background: linear-gradient(135deg, #0a0a0f 60%, #6b46c1 80%, #f6ad55 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 640px) {
+  .section-divider {
+    @apply my-8;
+  }
+}
